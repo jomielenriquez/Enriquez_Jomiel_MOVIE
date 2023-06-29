@@ -1,3 +1,3 @@
 # Enriquez Jomiel MOVIE
 
-### Database is locatted inside DB>script.sql
+### Database is located inside DB>script.sql
