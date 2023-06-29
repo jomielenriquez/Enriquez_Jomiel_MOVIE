@@ -1,0 +1,42 @@
+﻿@model Enriquez_Jomiel_MOVIE.Models.App
+@{
+    ViewBag.Title = "ListScreen";
+}
+
+<h2>Movie List</h2>
+
+
+@using (Html.BeginForm("Delete", "Movies", FormMethod.Post, new { @name = "MovieForm" }))
+{
+
+    <table id="table_names" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th style="width: 25px;">
+                    @*<input type="checkbox" id="AreChecked" />*@
+                </th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th class="hidden">ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Enriquez_Jomiel_MOVIE.Models.TBL_MOVIES Movies in Model.MovieList)
+            {
+                <tr>
+                    <td><input type="checkbox" name="AreChecked" value="@Movies.MOVIEID" /></td>
+                    <td><a href="@Url.Action("EditScreen","Movies", new { MovieID = (Movies.MOVIEID)})">@Movies.NAME</a></td>
+                    <td>@Movies.DESCRITPION</td>
+                    <td>@Movies.TBL_CATEGORIES.NAME</td>
+                    <td class="hidden">@Movies.MOVIEID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p class="bs-component">
+        <a class="btn btn-primary" href="@Url.Action("EditScreen","Movies")"><i class="icon-plus"></i>  Add</a>
+        <button type="submit" class="btn btn-danger"><i class="icon-trash"></i>  Delete</button>
+    </p>
+}
