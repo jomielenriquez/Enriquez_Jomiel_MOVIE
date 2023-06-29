@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MOVIEDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MOVIEDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBL_CATEGORIES">
           <Key>
             <PropertyRef Name="CATEGORYID" />
@@ -18,7 +18,7 @@
           </Key>
           <Property Name="MOVIEID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="50" />
-          <Property Name="DESCRITPION" Type="nvarchar" MaxLength="100" />
+          <Property Name="DESCRITPION" Type="nvarchar" MaxLength="500" />
           <Property Name="CATEGORYID" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <Association Name="FK_TBL_MOVIE_CATEGORYID">
@@ -41,8 +41,7 @@
             <End Role="TBL_MOVIES" EntitySet="TBL_MOVIES" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MOVIEDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -60,7 +59,7 @@
           </Key>
           <Property Name="MOVIEID" Type="Guid" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DESCRITPION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRITPION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CATEGORYID" Type="Guid" Nullable="false" />
           <NavigationProperty Name="TBL_CATEGORIES" Relationship="Self.FK_TBL_MOVIE_CATEGORYID" FromRole="TBL_MOVIES" ToRole="TBL_CATEGORIES" />
         </EntityType>
